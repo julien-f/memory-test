@@ -4,6 +4,8 @@ const hf = require('human-format')
 const limit = require('limit-concurrency-decorator').default
 
 function main () {
+  console.log(`Node version: ${process.version}`)
+  const time = Date.now()
   const f = limit(1)(() => Promise.resolve())
 
   let i
@@ -12,6 +14,8 @@ function main () {
       j = 0
       return loop2().then(loop1)
     }
+    const diff = Date.now()
+    console.log(`Benchmark took ${(diff - time) / 1000} seconds`)
   }
 
   let j
