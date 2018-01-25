@@ -1,10 +1,12 @@
+"use strict"
+
 global.Promise = require('bluebird')
 
 const hf = require('human-format')
 const limit = require('limit-concurrency-decorator').default
 
 function main () {
-  console.log(`Node version: ${process.version}`)
+  console.log('Node version: %s', process.version)
   const time = Date.now()
   const f = limit(1)(() => Promise.resolve())
 
@@ -15,7 +17,7 @@ function main () {
       return loop2().then(loop1)
     }
     const diff = Date.now()
-    console.log(`Benchmark took ${(diff - time) / 1000} seconds`)
+    console.log('Benchmark took %f seconds', (diff - time) / 1000)
   }
 
   let j
@@ -24,7 +26,10 @@ function main () {
       f('foo', 'bar', 'baz', 'qux', 1, 2, 3)
       return f('foo', 'bar', 'baz', 'qux', 1, 2, 3).then(loop2)
     }
-    const { heapUsed, heapTotal} = process.memoryUsage()
+    const memoryUsage = process.memoryUsage()
+    const heapUsed = memoryUsage.heapUsed
+    const heapTotal = memoryUsage.heapTotal
+
     console.log('%d: %s / %s', i, hf(heapUsed), hf(heapTotal))
     return Promise.resolve()
   }
