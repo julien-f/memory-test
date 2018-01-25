@@ -1,6 +1,8 @@
 "use strict"
 
-global.Promise = require("bluebird")
+if (process.argv[2] !== '--native') {
+  global.Promise = require("bluebird")
+}
 
 var hf = require("human-format")
 var limit = require("limit-concurrency-decorator").default
