@@ -3,7 +3,7 @@ No memory leaks detected but big change of memory usage (and speed) between Node
 Node 9:
 
 ```
-> node index.js --native
+> yarn start --native
 Node version: v9.4.0
 1: 91.16 M / 122.5 M
 2: 92.9 M / 118.31 M
@@ -31,7 +31,7 @@ Benchmark took 10.481 seconds
 Node 8:
 
 ```
-> node index.js --native
+> yarn start --native
 Node version: v8.9.4
 1: 93.7 M / 128.82 M
 2: 95.01 M / 127.25 M
@@ -59,7 +59,7 @@ Benchmark took 10.375 seconds
 Node 6:
 
 ```
-> node index.js --native
+> yarn start --native
 Node version: v6.12.3
 1: 198.38 M / 227.57 M
 2: 383.31 M / 415.27 M
@@ -87,7 +87,7 @@ Benchmark took 53.803 seconds
 Node 4:
 
 ```
-> node index.js --native
+> yarn start --native
 Node version: v4.8.7
 1: 377.18 M / 400.37 M
 2: 737.25 M / 761.54 M

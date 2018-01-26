@@ -30,6 +30,7 @@ function main() {
       f("foo", "bar", "baz", "qux", 1, 2, 3)
       return f("foo", "bar", "baz", "qux", 1, 2, 3).then(loop2)
     }
+    gc()
     var memoryUsage = process.memoryUsage()
     var heapUsed = memoryUsage.heapUsed
     var heapTotal = memoryUsage.heapTotal

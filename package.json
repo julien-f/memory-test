@@ -12,6 +12,6 @@
     "limit-concurrency-decorator": "^0.2.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node --expose_gc index.js"
   }
 }
